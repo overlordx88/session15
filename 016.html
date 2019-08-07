@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+    .box{
+        color: #fff;
+        padding: 20px;
+        display: none;
+        width: 100px;
+        height: 100px;
+        margin-top: 20px;
+    }
+    .blue{ background:rgb(12, 96, 145);
+
+    }
+    .red{ background:rgb(214, 10, 10);
+        }
+    .green{ background:rgb(111, 207, 1);
+        } 
+    .violet{ background: rgb(162, 80, 255);
+        } 
+    label{ margin-right: 15px; }
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="./jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('input[type="checkbox"]').click(function(){
+        var inputValue = $(this).attr("value");
+        $("." + inputValue).toggle();
+    });
+});
+$(document).ready(function(){
+    $("select").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".box").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+});
+</script>
+</head>
+<body>
+        <div id="myDIV">
+        box
+      </div>
+    <div>
+        <label><input type="checkbox" name="colorCheckbox" data-effect="blue box" value="blue"> blue</label>
+        <label><input type="checkbox" name="colorCheckbox" data-effect="red box" value="red"> red</label>
+        <label><input type="checkbox" name="colorCheckbox" data-effect="green box" value="green"> green</label>
+        <label><input type="checkbox" name="colorCheckbox" data-effect="violet box" value="violet"> violet</label>
+
+    </div>
+    <select>
+            <option>Choose Color</option>
+            <option value="blue">Blue</option>
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="violet">Violet</option>
+
+        </select>  
+    <div class="blue box">You have selected <strong>blue checkbox</strong> so i am here</div>
+    <div class="red box">You have selected <strong>red checkbox</strong> so i am here</div>
+    <div class="green box">You have selected <strong>green checkbox</strong> so i am here</div>
+    <div class="violet box">You have selected <strong>violet checkbox</strong> so i am here</div>
+    
+    <button onclick="myFunction()">Click Me</button>
+<script src="./013.js"></script>
+
+</body>
+</html>                            

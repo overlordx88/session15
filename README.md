@@ -1,0 +1,1 @@
+# Write dynamic jQuery code for boxes (show/hide).
